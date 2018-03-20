@@ -85,14 +85,9 @@ var createFile = function () {
             _context2.t10 = opts.format;
             _context2.t11 = output;
             image = (0, _context2.t6)(_context2.t7).overlayWith(_context2.t8, _context2.t9)[_context2.t10](_context2.t11);
-            _context2.next = 22;
-            return (0, _sharp2.default)(image).resize(null, null).toBuffer();
-
-          case 22:
-            image = _context2.sent;
             return _context2.abrupt('return', image[opts.format](output).toBuffer());
 
-          case 24:
+          case 21:
           case 'end':
             return _context2.stop();
         }
@@ -144,7 +139,6 @@ var _sharp2 = _interopRequireDefault(_sharp);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getOptions(metadata1, metadata2, opts) {
-  console.log("==============================================================", metadata1, metadata2, opts);
   return {
     width: metadata1.width,
     height: metadata1.height * 1.33,
