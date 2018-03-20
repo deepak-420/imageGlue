@@ -91,10 +91,12 @@ var createFile = function () {
 
           case 23:
             _context2.t13 = _context2.sent;
-            image = (0, _context2.t12)(_context2.t13).resize(null, null).max().toBuffer();
+            _context2.t14 = opts.width;
+            _context2.t15 = opts.height;
+            image = (0, _context2.t12)(_context2.t13).resize(_context2.t14, _context2.t15).max().toBuffer();
             return _context2.abrupt('return', image[opts.format](output).toBuffer());
 
-          case 26:
+          case 28:
           case 'end':
             return _context2.stop();
         }
