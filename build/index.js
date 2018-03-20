@@ -56,7 +56,7 @@ var getMetadata = function () {
 
 var createFile = function () {
   var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2(file1, file2, opts) {
-    var output, image, resizedFile;
+    var output, image;
     return _regenerator2.default.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -86,10 +86,10 @@ var createFile = function () {
             _context2.t11 = output;
             image = (0, _context2.t6)(_context2.t7).overlayWith(_context2.t8, _context2.t9)[_context2.t10](_context2.t11);
             _context2.next = 22;
-            return (0, _sharp2.default)(file).resize(null, null).toBuffer();
+            return (0, _sharp2.default)(image).resize(null, null).toBuffer();
 
           case 22:
-            resizedFile = _context2.sent;
+            image = _context2.sent;
             return _context2.abrupt('return', image[opts.format](output).toBuffer());
 
           case 24:
@@ -163,7 +163,7 @@ var merge = exports.merge = function () {
   var _ref5 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee4(files) {
     var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-    var _ref6, _ref7, metadata1, metadata2, _ref8, _file, metadata, _ref9, _file2, _metadata;
+    var _ref6, _ref7, metadata1, metadata2, _ref8, file, metadata, _ref9, _file, _metadata;
 
     return _regenerator2.default.wrap(function _callee4$(_context4) {
       while (1) {
@@ -198,9 +198,9 @@ var merge = exports.merge = function () {
 
           case 11:
             _ref8 = _context4.sent;
-            _file = _ref8.file;
+            file = _ref8.file;
             metadata = _ref8.metadata;
-            return _context4.abrupt('return', createFile(_file, files[1], getOptions(metadata, metadata2, opts)));
+            return _context4.abrupt('return', createFile(file, files[1], getOptions(metadata, metadata2, opts)));
 
           case 17:
             if (!(metadata2.height > metadata1.height)) {
@@ -213,9 +213,9 @@ var merge = exports.merge = function () {
 
           case 20:
             _ref9 = _context4.sent;
-            _file2 = _ref9.file;
+            _file = _ref9.file;
             _metadata = _ref9.metadata;
-            return _context4.abrupt('return', createFile(files[0], _file2, getOptions(metadata1, _metadata, opts)));
+            return _context4.abrupt('return', createFile(files[0], _file, getOptions(metadata1, _metadata, opts)));
 
           case 26:
             return _context4.abrupt('return', createFile(files[0], files[1], getOptions(metadata1, metadata2, opts)));
