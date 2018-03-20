@@ -16,7 +16,7 @@ async function createFile(file1, file2, opts) {
 function getOptions(metadata1, metadata2, opts) {
   return {
     width: metadata1.width,
-    height: metadata1.height + metadata1.height,
+    height: metadata1.height + (metadata1.height/3),
     channels: metadata1.channels,
     format: opts.format ? opts.format : metadata1.format,
     output: opts.output || {},
