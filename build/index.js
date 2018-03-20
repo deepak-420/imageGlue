@@ -85,9 +85,18 @@ var createFile = function () {
             _context2.t10 = opts.format;
             _context2.t11 = output;
             image = (0, _context2.t6)(_context2.t7).overlayWith(_context2.t8, _context2.t9)[_context2.t10](_context2.t11);
+            _context2.t12 = _sharp2.default;
+            _context2.next = 23;
+            return image.toBuffer();
+
+          case 23:
+            _context2.t13 = _context2.sent;
+            _context2.t14 = opts.width;
+            _context2.t15 = opts.height;
+            image = (0, _context2.t12)(_context2.t13).resize(_context2.t14, _context2.t15);
             return _context2.abrupt('return', image[opts.format](output).toBuffer());
 
-          case 21:
+          case 28:
           case 'end':
             return _context2.stop();
         }
@@ -140,8 +149,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function getOptions(metadata1, metadata2, opts) {
   return {
-    width: 1240,
-    height: 1755,
+    width: metadata1.width,
+    height: metadata1.height,
     channels: metadata1.channels,
     format: opts.format ? opts.format : metadata1.format,
     output: opts.output || {},
