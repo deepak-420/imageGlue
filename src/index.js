@@ -16,7 +16,7 @@ async function createFile(file1, file2, opts) {
 function getOptions(metadata1, metadata2, opts) {
   return {
     width: metadata1.width + metadata2.width,
-    height: metadata1.height,
+    height: metadata1.height*2,
     channels: metadata1.channels,
     format: opts.format ? opts.format : metadata1.format,
     output: opts.output || {},
@@ -29,7 +29,7 @@ function getOptions(metadata1, metadata2, opts) {
 }
 
 async function resizeImage(file, height) {
-  const resizedFile = await sharp(file).resize(null, height*2).toBuffer()
+  const resizedFile = await sharp(file).resize(null, height).toBuffer()
   const metadata = await getMetadata(resizedFile)
   return { file: resizedFile, metadata }
 }

@@ -108,7 +108,7 @@ var resizeImage = function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return (0, _sharp2.default)(file).resize(null, height * 2).toBuffer();
+            return (0, _sharp2.default)(file).resize(null, height).toBuffer();
 
           case 2:
             resizedFile = _context3.sent;
@@ -141,7 +141,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function getOptions(metadata1, metadata2, opts) {
   return {
     width: metadata1.width + metadata2.width,
-    height: metadata1.height,
+    height: metadata1.height * 2,
     channels: metadata1.channels,
     format: opts.format ? opts.format : metadata1.format,
     output: opts.output || {},
