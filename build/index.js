@@ -139,9 +139,10 @@ var _sharp2 = _interopRequireDefault(_sharp);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getOptions(metadata1, metadata2, opts) {
+  console.log("==============================================================", metadata1, metadata2, opts);
   return {
     width: metadata1.width,
-    height: metadata1.height + metadata1.height,
+    height: metadata1.height + metadata2.height,
     channels: metadata1.channels,
     format: opts.format ? opts.format : metadata1.format,
     output: opts.output || {},
