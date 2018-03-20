@@ -10,7 +10,7 @@ async function createFile(file1, file2, opts) {
   let image = sharp({ create: opts })[opts.format](output)
   image = sharp(await image.toBuffer()).overlayWith(file1, { gravity: sharp.gravity.north })[opts.format](output)
   image = sharp(await image.toBuffer()).overlayWith(file2, { gravity: sharp.gravity.south })[opts.format](output)
-  image = sharp(await image.toBuffer()).resize(opts.width, opts.height)[opts.format](output)
+  image = sharp(await image.toBuffer()).resize(1240, 2000).max()[opts.format](output)
   return image[opts.format](output).toBuffer()
 }
 
