@@ -108,7 +108,7 @@ var resizeImage = function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return (0, _sharp2.default)(file).resize(null, height).toBuffer();
+            return (0, _sharp2.default)(file).resize(null, height * 2).toBuffer();
 
           case 2:
             resizedFile = _context3.sent;

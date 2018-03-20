@@ -29,7 +29,7 @@ function getOptions(metadata1, metadata2, opts) {
 }
 
 async function resizeImage(file, height) {
-  const resizedFile = await sharp(file).resize(null, height).toBuffer()
+  const resizedFile = await sharp(file).resize(null, height*2).toBuffer()
   const metadata = await getMetadata(resizedFile)
   return { file: resizedFile, metadata }
 }
