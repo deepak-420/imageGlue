@@ -1,23 +1,23 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.merge = undefined;
 
-var _promise = require("babel-runtime/core-js/promise");
+var _promise = require('babel-runtime/core-js/promise');
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _slicedToArray2 = require("babel-runtime/helpers/slicedToArray");
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
 
 var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
-var _regenerator = require("babel-runtime/regenerator");
+var _regenerator = require('babel-runtime/regenerator');
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _asyncToGenerator2 = require("babel-runtime/helpers/asyncToGenerator");
+var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
@@ -39,10 +39,10 @@ var getMetadata = function () {
             channels = _ref2.channels;
             format = _ref2.format;
             hasAlpha = _ref2.hasAlpha;
-            return _context.abrupt("return", { width: width, height: height, channels: channels, format: format, hasAlpha: hasAlpha });
+            return _context.abrupt('return', { width: width, height: height, channels: channels, format: format, hasAlpha: hasAlpha });
 
           case 9:
-          case "end":
+          case 'end':
             return _context.stop();
         }
       }
@@ -85,10 +85,10 @@ var createFile = function () {
             _context2.t10 = opts.format;
             _context2.t11 = output;
             image = (0, _context2.t6)(_context2.t7).overlayWith(_context2.t8, _context2.t9)[_context2.t10](_context2.t11);
-            return _context2.abrupt("return", image[opts.format](output).toBuffer());
+            return _context2.abrupt('return', image[opts.format](output).toBuffer());
 
           case 21:
-          case "end":
+          case 'end':
             return _context2.stop();
         }
       }
@@ -117,10 +117,10 @@ var resizeImage = function () {
 
           case 5:
             metadata = _context3.sent;
-            return _context3.abrupt("return", { file: resizedFile, metadata: metadata });
+            return _context3.abrupt('return', { file: resizedFile, metadata: metadata });
 
           case 7:
-          case "end":
+          case 'end':
             return _context3.stop();
         }
       }
@@ -132,17 +132,14 @@ var resizeImage = function () {
   };
 }();
 
-var _sharp = require("sharp");
+var _sharp = require('sharp');
 
 var _sharp2 = _interopRequireDefault(_sharp);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getOptions(metadata1, metadata2, opts) {
-  console.log("metadata1 ", metadata1);
-  console.log("metadata2 ", metadata2);
-  console.log("opts ", opts);
-  return {
+  var options = {
     width: metadata1.width,
     height: metadata1.height + metadata1.height / 2,
     channels: metadata1.channels,
@@ -154,6 +151,8 @@ function getOptions(metadata1, metadata2, opts) {
       b: 255
     }
   };
+  console.log("options ", options);
+  return options;
 }
 
 var merge = exports.merge = function () {
@@ -197,7 +196,7 @@ var merge = exports.merge = function () {
             _ref8 = _context4.sent;
             file = _ref8.file;
             metadata = _ref8.metadata;
-            return _context4.abrupt("return", createFile(file, files[1], getOptions(metadata, metadata2, opts)));
+            return _context4.abrupt('return', createFile(file, files[1], getOptions(metadata, metadata2, opts)));
 
           case 17:
             if (!(metadata2.height > metadata1.height)) {
@@ -212,13 +211,13 @@ var merge = exports.merge = function () {
             _ref9 = _context4.sent;
             _file = _ref9.file;
             _metadata = _ref9.metadata;
-            return _context4.abrupt("return", createFile(files[0], _file, getOptions(metadata1, _metadata, opts)));
+            return _context4.abrupt('return', createFile(files[0], _file, getOptions(metadata1, _metadata, opts)));
 
           case 26:
-            return _context4.abrupt("return", createFile(files[0], files[1], getOptions(metadata1, metadata2, opts)));
+            return _context4.abrupt('return', createFile(files[0], files[1], getOptions(metadata1, metadata2, opts)));
 
           case 27:
-          case "end":
+          case 'end':
             return _context4.stop();
         }
       }

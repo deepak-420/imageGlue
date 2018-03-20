@@ -14,10 +14,7 @@ async function createFile(file1, file2, opts) {
 }
 
 function getOptions(metadata1, metadata2, opts) {
-  console.log("metadata1 ", metadata1);
-  console.log("metadata2 ", metadata2);
-  console.log("opts ", opts);
-  return {
+  let options = {
     width: metadata1.width,
     height: metadata1.height + (metadata1.height/2),
     channels: metadata1.channels,
@@ -29,6 +26,8 @@ function getOptions(metadata1, metadata2, opts) {
       b: 255
     }
   }
+  console.log("options ", options);
+  return options;
 }
 
 async function resizeImage(file, height) {
