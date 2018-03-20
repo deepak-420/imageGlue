@@ -93,7 +93,7 @@ var createFile = function () {
             _context2.t13 = _context2.sent;
             _context2.t14 = opts.width;
             _context2.t15 = opts.height;
-            image = (0, _context2.t12)(_context2.t13).resize(_context2.t14, _context2.t15);
+            image = (0, _context2.t12)(_context2.t13).resize(_context2.t14, _context2.t15).toBuffer();
             return _context2.abrupt('return', image[opts.format](output).toBuffer());
 
           case 28:
@@ -150,7 +150,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function getOptions(metadata1, metadata2, opts) {
   return {
     width: metadata1.width,
-    height: metadata1.height,
+    height: metadata1.height + metadata1.height,
     channels: metadata1.channels,
     format: opts.format ? opts.format : metadata1.format,
     output: opts.output || {},

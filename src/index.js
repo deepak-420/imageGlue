@@ -10,14 +10,14 @@ async function createFile(file1, file2, opts) {
   let image = sharp({ create: opts })[opts.format](output)
   image = sharp(await image.toBuffer()).overlayWith(file1, { gravity: sharp.gravity.northwest })[opts.format](output)
   image = sharp(await image.toBuffer()).overlayWith(file2, { gravity: sharp.gravity.southwest })[opts.format](output)
-  image = sharp(await image.toBuffer()).resize(opts.width, opts.height)
+  image = sharp(await image.toBuffer()).resize(opts.width, opts.height).toBuffer()
   return image[opts.format](output).toBuffer()
 }
 
 function getOptions(metadata1, metadata2, opts) {
   return {
     width: metadata1.width,
-    height: metadata1.height,
+    height: metadata1.height + metadata1.height,
     channels: metadata1.channels,
     format: opts.format ? opts.format : metadata1.format,
     output: opts.output || {},
