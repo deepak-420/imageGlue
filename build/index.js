@@ -70,7 +70,7 @@ var createFile = function () {
           case 5:
             _context2.t1 = _context2.sent;
             _context2.t2 = file1;
-            _context2.t3 = { gravity: _sharp2.default.gravity.northwest };
+            _context2.t3 = { gravity: _sharp2.default.gravity.north };
             _context2.t4 = opts.format;
             _context2.t5 = output;
             image = (0, _context2.t0)(_context2.t1).overlayWith(_context2.t2, _context2.t3)[_context2.t4](_context2.t5);
@@ -81,13 +81,20 @@ var createFile = function () {
           case 14:
             _context2.t7 = _context2.sent;
             _context2.t8 = file2;
-            _context2.t9 = { gravity: _sharp2.default.gravity.southwest };
+            _context2.t9 = { gravity: _sharp2.default.gravity.south };
             _context2.t10 = opts.format;
             _context2.t11 = output;
             image = (0, _context2.t6)(_context2.t7).overlayWith(_context2.t8, _context2.t9)[_context2.t10](_context2.t11);
+            _context2.t12 = _sharp2.default;
+            _context2.next = 23;
+            return image.toBuffer();
+
+          case 23:
+            _context2.t13 = _context2.sent;
+            image = (0, _context2.t12)(_context2.t13).resize(null, null).max().toBuffer();
             return _context2.abrupt('return', image[opts.format](output).toBuffer());
 
-          case 21:
+          case 26:
           case 'end':
             return _context2.stop();
         }
